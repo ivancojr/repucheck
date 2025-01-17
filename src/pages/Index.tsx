@@ -44,15 +44,42 @@ const NEGATIVE_WORDS = [
 
 // N-grams positivos e negativos
 const POSITIVE_NGRAMS = [
-  "muito bom", "ótimo trabalho", "excelente serviço", 
-  "adorei o", "super recomendo", "ajuda incrível", 
-  "foi perfeito", "tudo ótimo", "produto excelente"
+  "muito bom", "ótimo trabalho", "super recomendo", "bem feito", 
+  "bem organizado", "tudo certo", "ajuda excelente", "parabéns mesmo", 
+  "top demais", "produto perfeito", "funcionou bem", "melhor escolha", 
+  "ótima solução", "serviço excelente", "tempo rápido", "entrega rápida", 
+  "muito eficiente", "bem interessante", "resposta clara", "grande apoio", 
+  "muito satisfeito", "bastante útil", "excelente atendimento", "boa ideia", 
+  "super útil", "bem executado", "ótima experiência", "bem bacana", 
+  "super seguro", "funciona perfeito", "bem prático", "qualidade incrível", "adorei o produto", "muito bem feito", "ótimo em tudo", 
+  "funciona muito bem", "entrega foi rápida", "excelente em qualidade", 
+  "foi incrível mesmo", "parabéns pelo trabalho", "tudo muito bom", 
+  "superou minhas expectativas", "tempo de resposta rápido", 
+  "muito feliz mesmo", "tudo perfeito sempre", "ótima escolha mesmo", 
+  "recomendo sem dúvidas", "excelente suporte técnico", 
+  "fiquei muito satisfeito", "muito grato mesmo", "ótima opção sempre", 
+  "valeu muito a pena", "funciona como esperado", "recomendo de coração", 
+  "muito útil mesmo", "bem prático sempre", "super seguro mesmo", 
+  "tudo impecável mesmo"
 ];
 
 const NEGATIVE_NGRAMS = [
-  "não gostei", "péssima experiência", "horrível mesmo", 
-  "não funciona", "muito ruim", "entrega atrasada", 
-  "foi péssimo", "decepcionante demais", "pior que"
+  "muito ruim", "péssimo trabalho", "não gostei", "foi horrível", 
+  "horrível mesmo", "bem chato", "serviço ruim", "produto terrível", 
+  "tudo errado", "muito demorado", "entrega péssima", "tempo perdido", 
+  "falta respeito", "péssima escolha", "bem pior", "não compensa", 
+  "pior experiência", "pior serviço", "bem fraco", "totalmente inútil", 
+  "foi ridículo", "péssima qualidade", "nada funciona", "bem problemático", 
+  "desapontamento total", "nada confiável", "suporte péssimo", 
+  "atendimento horrível", "muito decepcionante", "nunca mais", "não funciona direito", "entrega foi péssima", "muito ruim mesmo", 
+  "foi uma decepção", "não recomendo nunca", "nunca mais mesmo", 
+  "horrível em tudo", "péssima escolha mesmo", "tempo perdido total", 
+  "não vale nada", "nada prestou aqui", "pior coisa sempre", 
+  "foi bem problemático", "pior suporte possível", "não deu certo", 
+  "nada confiável mesmo", "bem decepcionante mesmo", "nunca mais voltarei", 
+  "foi tudo ruim", "nada deu certo", "bem demorado mesmo", "bem ruim sempre", 
+  "atraso sem fim", "nada prestou mesmo", "foi totalmente inútil", 
+  "bem abaixo esperado", "serviço bem ruim"
 ];
 
 // Função para gerar n-grams
