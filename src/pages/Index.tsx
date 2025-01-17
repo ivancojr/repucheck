@@ -2,11 +2,12 @@ import { useState } from "react";
 import { ReputationScore } from "@/components/ReputationScore";
 import { CommentsList } from "@/components/CommentsList";
 import { CommentInput } from "@/components/CommentInput";
+import { SocialMediaIntegration } from "@/components/SocialMediaIntegration";
 
 // Simple sentiment analysis function (in a real app, you'd use a proper NLP service)
 const analyzeSentiment = (text: string): number => {
-  const positiveWords = ['good', 'great', 'awesome', 'excellent', 'happy', 'love', 'best'];
-  const negativeWords = ['bad', 'terrible', 'awful', 'horrible', 'hate', 'worst'];
+  const positiveWords = ["good", "great", "awesome", "excellent", "happy", "love", "best"];
+  const negativeWords = ["bad", "terrible", "awful", "horrible", "hate", "worst"];
   
   const words = text.toLowerCase().split(/\s+/);
   let score = 0.5; // neutral starting point
@@ -36,18 +37,28 @@ const Index = () => {
     ]);
   };
 
+  const handleSocialComments = (newComments: Array<{ text: string; sentiment: number }>) => {
+    const commentsWithIds = newComments.map(comment => ({
+      ...comment,
+      id: Date.now().toString() + Math.random()
+    }));
+    setComments(prev => [...commentsWithIds, ...prev]);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-primary text-primary-foreground py-6">
         <div className="container">
-          <h1 className="text-3xl font-bold">Online Reputation Analyzer</h1>
+          <h1 className="text-3xl font-bold">Analisador de Reputação Online</h1>
           <p className="mt-2 text-primary-foreground/80">
-            Monitor and analyze your social media reputation
+            Monitore e analise sua reputação nas redes sociais
           </p>
         </div>
       </header>
 
-      <main className="container py-8">
+      <main className="container py-8 space-y-8">
+        <SocialMediaIntegration onCommentsReceived={handleSocialComments} />
+        
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-8">
             <div className="p-6 bg-white rounded-lg shadow-md">
