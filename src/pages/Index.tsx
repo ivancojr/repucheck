@@ -8,16 +8,40 @@ import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle2, AlertTriangle, AlertCircle } from "lucide-react";
 
-// Palavras-chave para análise de sentimento
+// Palavras-chave individuais para análise de sentimento
 const POSITIVE_WORDS = [
   "ótimo", "bom", "excelente", "útil", "ajuda", "genial",
-  "incrível", "maravilhoso", "sensacional", "adorei", "parabéns"
+  "incrível", "maravilhoso", "sensacional", "adorei", "parabéns",
+  "recomendo", "perfeito", "fantástico", "satisfeito"
 ];
 
 const NEGATIVE_WORDS = [
   "ruim", "péssimo", "horrível", "nojento", "idiota", "balela",
-  "troll", "lixo", "terrível", "odiei", "detestei"
+  "troll", "lixo", "terrível", "odiei", "detestei",
+  "decepcionante", "fraco", "insatisfeito", "porcaria"
 ];
+
+// N-grams positivos e negativos
+const POSITIVE_NGRAMS = [
+  "muito bom", "ótimo trabalho", "excelente serviço", 
+  "adorei o", "super recomendo", "ajuda incrível", 
+  "foi perfeito", "tudo ótimo", "produto excelente"
+];
+
+const NEGATIVE_NGRAMS = [
+  "não gostei", "péssima experiência", "horrível mesmo", 
+  "não funciona", "muito ruim", "entrega atrasada", 
+  "foi péssimo", "decepcionante demais", "pior que"
+];
+
+// Função para gerar n-grams
+const generateNGrams = (words: string[], n: number): string[] => {
+  const ngrams: string[] = [];
+  for (let i = 0; i < words.length - n + 1; i++) {
+    ngrams.push(words.slice(i, i + n).join(" "));
+  }
+  return ngrams;
+};
 
 interface Comment {
   id: string;
@@ -30,14 +54,54 @@ const Index = () => {
 
   const analyzeSentiment = (text: string): number => {
     const words = text.toLowerCase().split(/\s+/);
-    let score = 0.5; // ponto neutro
+    const bigrams = generateNGrams(words, 2);
+    const trigrams = generateNGrams(words, 3);
 
+    let score = 0.5; // ponto neutro
+    let totalMatches = 0;
+
+    // Análise de palavras individuais
     words.forEach(word => {
-      if (POSITIVE_WORDS.some(pw => word.includes(pw))) score += 0.1;
-      if (NEGATIVE_WORDS.some(nw => word.includes(nw))) score -= 0.1;
+      if (POSITIVE_WORDS.some(pw => word.includes(pw))) {
+        score += 0.1;
+        totalMatches++;
+      }
+      if (NEGATIVE_WORDS.some(nw => word.includes(nw))) {
+        score -= 0.1;
+        totalMatches++;
+      }
     });
 
-    return Math.max(0, Math.min(1, score));
+    // Análise de bigrams
+    bigrams.forEach(bigram => {
+      if (POSITIVE_NGRAMS.includes(bigram)) {
+        score += 0.15;
+        totalMatches++;
+      }
+      if (NEGATIVE_NGRAMS.includes(bigram)) {
+        score -= 0.15;
+        totalMatches++;
+      }
+    });
+
+    // Análise de trigrams (peso maior por ser mais específico)
+    trigrams.forEach(trigram => {
+      if (POSITIVE_NGRAMS.includes(trigram)) {
+        score += 0.2;
+        totalMatches++;
+      }
+      if (NEGATIVE_NGRAMS.includes(trigram)) {
+        score -= 0.2;
+        totalMatches++;
+      }
+    });
+
+    // Normalização do score
+    if (totalMatches > 0) {
+      score = Math.max(0, Math.min(1, score));
+    }
+
+    return score;
   };
 
   const calculateOverallScore = () => {
