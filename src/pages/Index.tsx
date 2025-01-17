@@ -10,15 +10,36 @@ import { CheckCircle2, AlertTriangle, AlertCircle } from "lucide-react";
 
 // Palavras-chave individuais para análise de sentimento
 const POSITIVE_WORDS = [
-  "ótimo", "bom", "excelente", "útil", "ajuda", "genial",
-  "incrível", "maravilhoso", "sensacional", "adorei", "parabéns",
-  "recomendo", "perfeito", "fantástico", "satisfeito"
+  "ótimo", "bom", "excelente", "útil", "ajuda", "genial", "incrível", 
+  "maravilhoso", "sensacional", "adorei", "parabéns", "fantástico", 
+  "amável", "simpático", "inspirador", "top", "perfeito", "show", 
+  "super", "legal", "feliz", "alegria", "satisfatório", "positivamente", 
+  "recomendo", "brilhante", "grato", "surpreendente", "inovador", 
+  "eficiente", "confiável", "apreciado", "espetacular", "único", 
+  "inestimável", "carinhoso", "excelência", "admirável", "respeitado", 
+  "honesto", "impactante", "aplauso", "fabuloso", "positivo", "querido", 
+  "valioso", "divertido", "gentil", "merecedor", "admirado", "grandioso", 
+  "louvável", "fenomenal", "prazeroso", "top-notch", "5 estrelas", 
+  "memorável", "refrescante", "encantador", "agradável", "delicioso", 
+  "impressionante", "seguro", "extraordinário", "tranquilo", "incomparável", 
+  "sustentável", "emocionante", "brilhantismo", "crédito", "revolucionário"
 ];
 
 const NEGATIVE_WORDS = [
-  "ruim", "péssimo", "horrível", "nojento", "idiota", "balela",
-  "troll", "lixo", "terrível", "odiei", "detestei",
-  "decepcionante", "fraco", "insatisfeito", "porcaria"
+   "ruim", "péssimo", "horrível", "nojento", "idiota", "balela", "troll", 
+  "lixo", "terrível", "odiei", "detestei", "chato", "fraco", "irritante", 
+  "pífio", "medíocre", "insuportável", "problemático", "desapontado", 
+  "mentira", "enganoso", "ridículo", "absurdo", "malfeito", "frustrante", 
+  "inaceitável", "ineficiente", "decepcionante", "enganador", "patético", 
+  "escroto", "antipático", "inútil", "triste", "horrendo", "indigno", 
+  "atroz", "desastroso", "inferior", "falso", "lamentável", "prejudicial", 
+  "abusivo", "vulgar", "negligente", "miserável", "horripilante", "burro", 
+  "ofensivo", "infeliz", "sarcástico", "irresponsável", "arrogante", 
+  "desagradável", "intolerável", "engodo", "enganoso", "falho", "frustração", 
+  "desrespeitoso", "desprezível", "deprê", "vergonhoso", "desonesto", 
+  "constrangedor", "amador", "problemático", "ilegal", "maldoso", 
+  "prepotente", "vil", "desleixado", "desproporcional", "desnecessário", 
+  "ineficaz", "fraude", "debochado", "excludente"
 ];
 
 // N-grams positivos e negativos
