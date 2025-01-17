@@ -22,7 +22,7 @@ const POSITIVE_WORDS = [
   "louvável", "fenomenal", "prazeroso", "top-notch", "5 estrelas", 
   "memorável", "refrescante", "encantador", "agradável", "delicioso", 
   "impressionante", "seguro", "extraordinário", "tranquilo", "incomparável", 
-  "sustentável", "emocionante", "brilhantismo", "crédito", "revolucionário"
+  "sustentável", "emocionante", "brilhantismo", "crédito", "revolucionário", "sensíveis"
 ];
 
 const NEGATIVE_WORDS = [
@@ -60,7 +60,7 @@ const POSITIVE_NGRAMS = [
   "fiquei muito satisfeito", "muito grato mesmo", "ótima opção sempre", 
   "valeu muito a pena", "funciona como esperado", "recomendo de coração", 
   "muito útil mesmo", "bem prático sempre", "super seguro mesmo", 
-  "tudo impecável mesmo"
+  "tudo impecável mesmo", "são inteligentes"
 ];
 
 const NEGATIVE_NGRAMS = [
@@ -79,7 +79,7 @@ const NEGATIVE_NGRAMS = [
   "nada confiável mesmo", "bem decepcionante mesmo", "nunca mais voltarei", 
   "foi tudo ruim", "nada deu certo", "bem demorado mesmo", "bem ruim sempre", 
   "atraso sem fim", "nada prestou mesmo", "foi totalmente inútil", 
-  "bem abaixo esperado", "serviço bem ruim"
+  "bem abaixo esperado", "serviço bem ruim", "não são inteligentes"
 ];
 
 // Função para gerar n-grams
